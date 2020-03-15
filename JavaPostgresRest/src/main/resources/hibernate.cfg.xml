@@ -9,6 +9,7 @@
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">postgres</property>
+        <property name="show_sql">true</property>
         <mapping class="org.mycompany.hiber.TestEntity"/>
 
 
