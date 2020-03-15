@@ -22,12 +22,12 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
             throws IOException {
         String result = "nodata";
-        try {
-            result = testjava();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            result = ex.getMessage();
-        }
+        //try {
+            result = testHiber();
+      //  }  catch (SQLException ex) {
+        //    System.out.println(ex.getMessage());
+         //   result = ex.getMessage();
+       // }
         result = "Hello from servlet postgres " + result;
         httpServletResponse.getWriter().print(result);
     }
@@ -46,10 +46,10 @@ public class HelloServlet extends HttpServlet {
         return s;
     }
 
-    SessionFactory GetF() {
+    SessionFactory GetF()
+    {
         Configuration configuration = new Configuration();
         configuration.configure();
-
         return configuration.buildSessionFactory();
     }
 
