@@ -34,6 +34,10 @@ public class HelloServlet extends HttpServlet {
         String json = new Gson().toJson(result);
         // result = "Hello from servlet postgres " + result;
         httpServletResponse.setContentType("application/json");
+        httpServletResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        httpServletResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        httpServletResponse.setHeader("Access-Control-Max-Age", "3600");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", "x-requested-with");
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.getWriter().print(json);
     }

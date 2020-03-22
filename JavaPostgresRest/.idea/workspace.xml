@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6817e7cf-4007-4727-9b20-8171e7469a16" name="Default" comment="now return app/json" />
+    <list default="true" id="6817e7cf-4007-4727-9b20-8171e7469a16" name="Default" comment="now return app/json">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mycompany/myname/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mycompany/myname/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +242,7 @@
       <workItem from="1583565560654" duration="1679000" />
       <workItem from="1583567963032" duration="6000" />
       <workItem from="1584113807447" duration="856000" />
-      <workItem from="1584852621358" duration="1262000" />
+      <workItem from="1584852621358" duration="3763000" />
     </task>
     <task id="LOCAL-00001" summary="now return app/json">
       <created>1584853606572</created>
