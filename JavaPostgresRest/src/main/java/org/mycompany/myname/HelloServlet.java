@@ -4,46 +4,52 @@ package org.mycompany.myname;
  * Created by anon on 1/10/2017.
  */
 
+import com.google.gson.Gson;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.mycompany.hiber.TestEntity;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
-import javax.servlet.http.*;
-import java.io.IOException;
 
 public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
             throws IOException {
-        String result = "nodata";
+        // String result = "nodata";
         //try {
-            result = testHiber();
+        List<TestEntity> result = testHiber();
       //  }  catch (SQLException ex) {
         //    System.out.println(ex.getMessage());
          //   result = ex.getMessage();
        // }
-        result = "Hello from servlet postgres " + result;
-        httpServletResponse.getWriter().print(result);
+        String json = new Gson().toJson(result);
+        // result = "Hello from servlet postgres " + result;
+        httpServletResponse.setContentType("application/json");
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletResponse.getWriter().print(json);
     }
 
-    private String testHiber() {
+    private List<TestEntity> testHiber() {
         SessionFactory sf = GetF();
         Session session = sf.openSession();
         session.beginTransaction();
         List result = session.createQuery("from TestEntity").list();
-        String s = "";
-        for (TestEntity t : (List<TestEntity>) result) {
-            s += "Event (" + t.getName() + ") : " + t.getId();
-        }
+//        String s = "";
+//        for (TestEntity t : (List<TestEntity>) result) {
+//            s += "Event (" + t.getName() + ") : " + t.getId();
+//        }
         session.getTransaction().commit();
         session.close();
-        return s;
+        return result;
     }
 
     SessionFactory GetF()
