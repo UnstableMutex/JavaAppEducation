@@ -1,2 +1,3 @@
 org\mycompany\myname\HelloServlet.class
+org\mycompany\myname\HelloServletFunc.class
 org\mycompany\hiber\TestEntity.class

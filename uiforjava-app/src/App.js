@@ -4,6 +4,12 @@ import './App.css';
 import {Component} from "react";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {error:null,
+    items: []
+    }
+  }
  
  
   render() {
@@ -22,9 +28,31 @@ class App extends Component {
         >
           Learn React
         </a>
+        <ul>
+          {
+              this.state.items.map(i =>
+                <li key={i.id}>{i.name}</li>
+              )
+          }
+        </ul>
       </header>
     </div>
   );
+  }
+  componentDidMount(){
+    fetch("http://localhost:8888/servletfunc")
+.then()
+
+    .then((response) => response.json())
+    .then((response) => {
+            this.setState({items: response});
+            this.setState({isLoaded: true});
+    })
+    .then((error) => {
+        this.setState({false: true});
+        this.setState({error});
+    })
+
   }
 
 
